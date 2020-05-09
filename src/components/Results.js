@@ -29,7 +29,7 @@ export default class Results extends Component {
     }
 
     render() {
-        const { userName, products } = this.props;
+        const { userName, results, term } = this.props;
 
         return(
             <Layout>
@@ -42,7 +42,7 @@ export default class Results extends Component {
                         <Col xs={{ span: 19 }} lg={{ span: 16 }}>
                             <div className="header-search">
                                 <Search
-                                    placeholder="¿Que queres comprar?"
+                                    placeholder={term}
                                     onSearch={value => console.log(value)}
                                     enterButton
                                 />
@@ -58,9 +58,9 @@ export default class Results extends Component {
                     <p> Resultados la de busqueda </p>
                     <Row>
                         {
-                            products.map(prod => (
+                            results.map(resul => (
                                 <Col xs={{ span: 24 }} lg={{ span: 8 }}>
-                                    <ProductCard key={prod.id} product={prod} />
+                                    <ProductCard key={resul.id} product={resul} />
                                 </Col>
                             ))
                         }

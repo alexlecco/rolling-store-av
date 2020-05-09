@@ -15,6 +15,7 @@ export default class Main extends Component {
             redirect: false
         }
         this.handleChange = this.handleChange.bind(this);
+        this.updateList = this.props.updateList.bind(this);
     }
 
     setRedirect = () => {
@@ -26,6 +27,26 @@ export default class Main extends Component {
         if (this.state.redirect) {
            return <Redirect to='/results' />
         }
+    }
+
+    handleSearch(term) {
+        const localTerm = term;
+        let currentProducts = [];
+        let newProducts = [];
+
+        if (localTerm !== '') {
+            currentProducts = this.props.products;
+            newProducts = currentProducts.filter(item => {
+                const lc = item.name.toLowerCase();
+                const filter = localTerm.toLowerCase();
+                return lc.includes(filter);
+            });
+            this.props.updateList(newProducts, localTerm)
+        } else {
+            newProducts = this.props.products;
+        }
+
+        this.setRedirect();
     }
 
     handleChange(e) {    
@@ -48,7 +69,7 @@ export default class Main extends Component {
                                 {this.renderRedirect()}
                                 <Search
                                     placeholder="¿Que queres comprar?"
-                                    onSearch={this.setRedirect}
+                                    onSearch={() => this.handleSearch(this.props.term)}
                                     onChange={this.handleChange}
                                     enterButton
                                 />
