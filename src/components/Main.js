@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import logo from '../logo.png';
 import { Layout, Row, Col, Input } from 'antd';
+
+import ProductCard from './ProductCard';
+
 const { Header, Footer, Sider, Content } = Layout;
 const { Search } = Input;
+
 
 export default class Main extends Component {
     constructor(props) {
@@ -10,7 +14,7 @@ export default class Main extends Component {
     }
 
     render() {
-        const { userName } = this.props;
+        const { userName, products } = this.props;
 
         return(
             <Layout>
@@ -35,7 +39,16 @@ export default class Main extends Component {
                 </Header>
 
                 <Content className="content">
-                    <p> Edit <code>src/App.js</code> and save to reload. </p>
+                    <p> Basado en tu última visita </p>
+                    <Row>
+                        {
+                            products.map(prod => (
+                                <Col xs={{ span: 24 }} lg={{ span: 8 }}>
+                                    <ProductCard key={prod.id} product={prod} />
+                                </Col>
+                            ))
+                        }
+                    </Row>
                 </Content>
  
                 <Footer className="footer">

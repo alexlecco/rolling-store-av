@@ -65,6 +65,12 @@
   align-items: center;
 }
 
+.product-card {
+  background-color: var(--secondary);
+  margin: 10px;
+  padding: 15px;
+}
+
 
 /*-------------------------------------------------------------------*/
 
