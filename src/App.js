@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main';
+import Results from './components/Results';
 
 export default class App extends Component {
   constructor(props) {
