@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import logo from '../logo.png';
 import { Layout, Row, Col, Input } from 'antd';
+import { Redirect } from 'react-router-dom'
 
 import ProductCard from './ProductCard';
 
@@ -11,6 +12,20 @@ const { Search } = Input;
 export default class Results extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            redirect: false
+        }
+    }
+
+    setRedirect = () => {
+        this.setState({ redirect: true })
+    }
+
+    renderRedirect = () => {
+        console.log("redireccionar")
+        if (this.state.redirect) {
+           return <Redirect to='/' />
+        }
     }
 
     render() {
@@ -21,7 +36,8 @@ export default class Results extends Component {
                 <Header className="header">
                     <Row>
                         <Col xs={{ span: 5 }} lg={{ span: 3 }}>
-                            <img src={logo} className="header-logo" alt="logo" />
+                            {this.renderRedirect()}
+                            <img src={logo} className="header-logo" alt="logo" onClick={this.setRedirect} />
                         </Col>
                         <Col xs={{ span: 19 }} lg={{ span: 16 }}>
                             <div className="header-search">
