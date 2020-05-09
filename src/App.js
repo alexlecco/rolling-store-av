@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main';
 import Results from './components/Results';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
@@ -36,9 +44,20 @@ export default class App extends Component {
     const { userName, products } = this.state;
 
     return (
-        <div className='App-container'>
-          <Main userName={userName} products={products} />
-        </div>
+      <Router>
+        <Switch>
+          <Route path="/results">
+            <div className='App-container'>
+              <Results userName={userName} products={products} />
+            </div>
+          </Route>
+          <Route path="/">
+            <div className='App-container'>
+              <Main userName={userName} products={products} />
+            </div>
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }
