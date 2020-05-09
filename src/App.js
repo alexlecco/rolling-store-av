@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Main />
-      </header>
-    </div>
-  );
-}
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: 'Alex'
+    }
+  }
 
-export default App;
+  render() {
+    const { userName } = this.state;
+
+    return (
+      <div className="App">
+        <header className="App-container">
+          <Main userName={userName} />
+        </header>
+      </div>
+    );
+  }
+}
