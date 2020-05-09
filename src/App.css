@@ -8,11 +8,6 @@
   --test3: yellow;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-container {
   background-color: var(--background);
   min-height: 100vh;
@@ -23,29 +18,42 @@
   color: var(--text);
 }
 
-.logo {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 28px 16px 0;
-  float: left;
-}
-
-.greetings {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 28px 16px 0;
-  float: right;
-}
-
 .App-link {
   color: var(--details);
 }
 
+.content-color1 {
+  background-color: var(--test1);
+}
+.content-color2 {
+  background-color: var(--test2);
+}
+.content-color3 {
+  background-color: var(--test3);
+}
+
+/*-------------------------------------------------------------------*/
+
 .header{
   color: var(--text) !important;
 }
+
+.header-logo {
+  height: 60px;
+  cursor: pointer !important;
+}
+
+.header-search {
+  display: flex;
+  justify-content: center;
+}
+
+.header-greetings {
+  display: flex;
+  justify-content: center;
+}
+
+/*-------------------------------------------------------------------*/
 
 .content {
   background-color: var(--background);
@@ -54,6 +62,10 @@
   justify-content: center;
   align-items: center;
 }
+
+
+/*-------------------------------------------------------------------*/
+
 
 .footer {
   color: var(--text) !important;
