@@ -14,6 +14,7 @@ export default class Main extends Component {
         this.state = {
             redirect: false
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     setRedirect = () => {
@@ -25,6 +26,11 @@ export default class Main extends Component {
         if (this.state.redirect) {
            return <Redirect to='/results' />
         }
+    }
+
+    handleChange(e) {    
+        let term = e.target.value;
+        this.props.updateTerm(term)
     }
 
     render() {
@@ -43,6 +49,7 @@ export default class Main extends Component {
                                 <Search
                                     placeholder="¿Que queres comprar?"
                                     onSearch={this.setRedirect}
+                                    onChange={this.handleChange}
                                     enterButton
                                 />
                             </div>
