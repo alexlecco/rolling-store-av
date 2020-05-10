@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 export default class ProductCard extends Component {
     render() {
-        const { name, brand, price } = this.props.product;
-
         return(
-            <div className="product-card">
-                <div>producto: {name}</div>
-                <div>marca: {brand}</div>
-                <div>precio: {price}</div>
-            </div>
+            <Fragment>
+                    <div className="product-card">
+                        <div>producto: {this.props.product.name} </div>
+                        <div>marca: {this.props.product.brand} </div>
+                        <div>precio: {this.props.product.price} </div>
+                    </div>
+            </Fragment>
         )
     }
 }

@@ -5,8 +5,7 @@ import Results from './components/Results';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 export default class App extends Component {
@@ -22,7 +21,8 @@ export default class App extends Component {
           price: 19000
         },
         {
-          id: 'prod21',
+          id: 'prod02',
+
           name: 'zapatillas',
           brand: 'Nike',
           price: 3500
@@ -31,7 +31,7 @@ export default class App extends Component {
           id: 'prod03',
           name: 'juego de ps4',
           brand: 'Dark Souls',
-          price: 2000
+          price: 5000
         }
       ],
       results: [],
@@ -43,35 +43,48 @@ export default class App extends Component {
     this.setState({ term })
   }
 
+  updateList(newList, term) {
+    const { products } = this.state;
+    term !== '' ?
+      this.setState({
+        results: newList,
+        term
+      }) : 
+      this.setState({results: products})
+  }
+
   render() {
-    const { userName, products, term } = this.state;
+    const { userName, products, term, results } = this.state;
     const updateTerm = this.updateTerm.bind(this);
+    const updateList = this.updateList.bind(this);
 
     return (
       <Router>
         <Switch>
-          <Route path="/" exact>
-            <div className="App-container">
-              <Main
+
+          <Route path="/results">
+            <div className='App-container'>
+              <Results
                 userName={userName}
-                products={products}
-                updateTerm={updateTerm}
+                results={results}
                 term={term}
               />
             </div>
           </Route>
 
-          <Route path="/results">
-            <div className="App-container">
-              <Results
+          <Route path="/">
+            <div className='App-container'>
+              <Main
                 userName={userName}
                 products={products}
-              />
+                updateTerm={updateTerm}
+                term={term}
+                updateList={updateList}  />
             </div>
           </Route>
+
         </Switch>
       </Router>
-
     );
   }
 }

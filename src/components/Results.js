@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import logo from '../logo.png';
-import { Layout, Input, Row, Col } from 'antd';
+import { Layout, Row, Col, Input } from 'antd';
+import { Redirect } from 'react-router-dom'
+
 import ProductCard from './ProductCard';
-import { Redirect } from 'react-router-dom';
-const { Header, Content, Footer } = Layout;
+
+const { Header, Footer, Content } = Layout;
 const { Search } = Input;
+
 
 export default class Results extends Component {
     constructor(props) {
         super(props);
-        this.state ={
-            redirect: false    
+        this.state = {
+            redirect: false
         }
     }
 
@@ -19,54 +22,55 @@ export default class Results extends Component {
     }
 
     renderRedirect = () => {
-        if(this.state.redirect) {
-            return <Redirect to='/' />
+        console.log("redireccionar")
+        if (this.state.redirect) {
+           return <Redirect to='/' />
         }
     }
 
     render() {
-        const { userName, products } = this.props;
+        const { userName, results, term } = this.props;
 
         return(
             <Layout>
                 <Header className="header">
                     <Row>
-                        <Col xs={{ span:5 }} lg={{ span:3 }}>
-                            { this.renderRedirect() }
+                        <Col xs={{ span: 5 }} lg={{ span: 3 }}>
+                            {this.renderRedirect()}
                             <img src={logo} className="header-logo" alt="logo" onClick={this.setRedirect} />
                         </Col>
-                        <Col xs={{ span:19 }} lg={{ span:16 }}>
+                        <Col xs={{ span: 19 }} lg={{ span: 16 }}>
                             <div className="header-search">
                                 <Search
-                                    placeholder="¿Que querés comprar?"
-                                    onSearch={ value => console.log(value) }
+                                    placeholder={term}
+                                    onSearch={value => console.log(value)}
                                     enterButton
                                 />
                             </div>
                         </Col>
-                        <Col xs={{ span:0 }} lg={{ span:5 }}>
+                        <Col xs={{ span: 0 }} lg={{ span: 5 }}>
                             <div className="header-greetings">Bienvenido {userName}</div>
                         </Col>
                     </Row>
                 </Header>
 
                 <Content className="content">
-                    <p> Resultados </p>
+                    <p> Resultados la de busqueda </p>
                     <Row>
                         {
-                            products.map(prod => (
+                            results.map(resul => (
                                 <Col xs={{ span: 24 }} lg={{ span: 8 }}>
-                                    <ProductCard product={prod} />
+                                    <ProductCard key={resul.id} product={resul} />
                                 </Col>
                             ))
                         }
                     </Row>
                 </Content>
-
+ 
                 <Footer className="footer">
                     Footer
                 </Footer>
             </Layout>
-        );
+        )
     }
 }
