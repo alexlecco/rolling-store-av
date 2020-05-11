@@ -13,30 +13,17 @@ export default class App extends Component {
     super(props);
     this.state = {
       userName: 'Alex',
-      products: [
-        {
-          id: 'prod01',
-          name: 'notebook',
-          brand: 'Asus',
-          price: 19000
-        },
-        {
-          id: 'prod02',
-
-          name: 'zapatillas',
-          brand: 'Nike',
-          price: 3500
-        },
-        {
-          id: 'prod03',
-          name: 'juego de ps4',
-          brand: 'Dark Souls',
-          price: 5000
-        }
-      ],
+      products: [],
       results: [],
       term: ''
     }
+  }
+
+  componentDidMount() {
+    fetch('/products')
+      .then(res => res.json())
+      .then(products => this.setState({ products }))
+      .catch(() => console.log("error in fetch"));
   }
 
   updateTerm(term) {
@@ -57,6 +44,7 @@ export default class App extends Component {
     const { userName, products, term, results } = this.state;
     const updateTerm = this.updateTerm.bind(this);
     const updateList = this.updateList.bind(this);
+    console.log("products:::::", products)
 
     return (
       <Router>
