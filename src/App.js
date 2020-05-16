@@ -3,6 +3,7 @@ import './App.css';
 import Main from './components/Main';
 import Results from './components/Results';
 import CustomFooter from './components/CustomFooter';
+import CustomHeader from './components/CustomHeader';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +14,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: 'Alex',
+      username: 'Alex',
       products: [
         {
           id: 'prod1',
@@ -97,20 +98,25 @@ export default class App extends Component {
   }
 
   render() {
-    const { userName, products, term, results } = this.state;
+    const { username, products, term, results } = this.state;
     const updateTerm = this.updateTerm.bind(this);
     const updateList = this.updateList.bind(this);
 
     return (
       <Router>
+        <CustomHeader
+          username={username}
+          term={term}
+          updateTerm={updateTerm}
+          updateList={updateList}
+          products={products}
+        />
+ 
         <Switch>
-
           <Route path="/results">
             <div className='App-container'>
               <Results
-                userName={userName}
                 results={results}
-                term={term}
               />
             </div>
           </Route>
@@ -118,16 +124,12 @@ export default class App extends Component {
           <Route path="/">
             <div className='App-container'>
               <Main
-                userName={userName}
                 products={products}
-                updateTerm={updateTerm}
-                term={term}
-                updateList={updateList}  />
+              />
             </div>
           </Route>
-
         </Switch>
-        
+
         <CustomFooter />
       </Router>
     );
