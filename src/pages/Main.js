@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Row, Col } from 'antd';
-import ProductCard from './ProductCard';
+import ProductCard from '../components/ProductCard';
 const { Content } = Layout;
 
 export default class Main extends Component {

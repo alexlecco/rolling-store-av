@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Main from './components/Main';
-import Results from './components/Results';
+import Main from './pages/Main';
+import Results from './pages/Results';
+import Product from './pages/Product';
+import Cart from './pages/Cart';
+import Success from './pages/Success';
 import CustomFooter from './components/CustomFooter';
 import CustomHeader from './components/CustomHeader';
 import {
@@ -129,6 +132,28 @@ export default class App extends Component {
               />
             </div>
           </Route>
+
+          <Route path="/product">
+            <div className='App-container'>
+              <Product
+              />
+            </div>
+          </Route>
+
+          <Route path="/cart">
+            <div className='App-container'>
+              <Cart
+              />
+            </div>
+          </Route>
+
+          <Route path="/success">
+            <div className='App-container'>
+              <Success
+              />
+            </div>
+          </Route>
+
 
           <Route path="/">
             <div className='App-container'>
