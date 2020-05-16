@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { Col } from 'antd';
 
 export default class ProductCard extends Component {
     constructor(props) {

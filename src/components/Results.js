@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 import ProductCard from './ProductCard';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 const { Search } = Input;
 
 
