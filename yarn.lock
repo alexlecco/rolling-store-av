@@ -8956,9 +8956,9 @@ rc-resize-observer@^0.2.0:
     resize-observer-polyfill "^1.5.1"
 
 rc-select@^10.1.0:
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-10.3.1.tgz#ab11f28f0731b26f4e3175849a8dcdc6fbe97b58"
-  integrity sha512-sqkhJr/SNy2IAQGqAb/yjSdNKeHhJR/CZnwgo8hA9JzrLBb9+qSuOK1pddSmvc0iVvY355NXxuuOwhjazR1qiw==
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-10.3.0.tgz#7dec485e5f60a74454757cb3eedd9b44ca147bf0"
+  integrity sha512-NtOQ5ozXsOMH3+/FfAvhUohvGVGK0W/pMgQuWenhB6opJd2+4XPkDMy8CTe4Wc1P5z17Bos91tsnN3y+gxGXwA==
   dependencies:
     classnames "2.x"
     rc-animate "^3.0.0"

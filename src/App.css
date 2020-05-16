@@ -1,12 +1,13 @@
 :root {
-  --background: #457b9d;
-  --secondary: #1d3557;
-  --terciary: #a8dadc;
-  --details: #e63946;
-  --text: #f1faee;
+  --background: #AB987A;
+  --secondary: #0F1626;
+  --details: #FF533D;
+  --text: #F5F5F5;
   --test1: red;
   --test2: blue;
   --test3: yellow;
+  --white: #fff;
+  --black: #000;
 }
 
 .App-logo {
@@ -44,6 +45,32 @@
   color: var(--details);
 }
 
+.content-color1 {
+  background-color: var(--test1);
+}
+.content-color2 {
+  background-color: var(--test2);
+}
+.content-color3 {
+  background-color: var(--test3);
+}
+
+/*-------------------------------------------------------------------*/
+
+.header{
+  color: var(--text) !important;
+}
+
+.header-logo {
+  height: 60px;
+  cursor: pointer !important;
+}
+
+.header-search {
+  display: flex;
+  position: relative;
+}
+
 .header{
   color: var(--text) !important;
 }
@@ -65,6 +92,17 @@
   font-size: 16px;
 }
 
+.clear-icon {
+  color: var(--secondary);
+  top: -17px;
+  position: absolute;
+  z-index: 9999;
+  right: 60px;
+  bottom: 0;
+  cursor: pointer;
+}
+
+/*-------------------------------------------------------------------*/
 .content {
   background-color: var(--background);
   display: flex;
@@ -82,6 +120,13 @@
   background-color: var(--secondary);
   margin: 10px;
   padding: 15px;
+}
 
-  
+
+/*-------------------------------------------------------------------*/
+
+
+.footer {
+  color: var(--text) !important;
+  background-color: var(--details) !important;
 }
