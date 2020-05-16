@@ -10,6 +10,11 @@
   --black: #000;
 }
 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
 .App-container {
   background-color: var(--background);
   min-height: 100vh;
@@ -18,6 +23,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: var(--text);
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 28px 16px 0;
+  float: left;
+}
+
+.greetings {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 28px 16px 0;
+  float: right;
 }
 
 .App-link {
@@ -48,6 +69,19 @@
 .header-search {
   display: flex;
   position: relative;
+}
+
+.header{
+  color: var(--text) !important;
+}
+
+.header-logo {
+  height: 60px;
+  cursor: pointer !important;
+}
+
+.header-search {
+  display: flex;
   justify-content: center;
   margin-top: 15px;
 }
@@ -69,13 +103,17 @@
 }
 
 /*-------------------------------------------------------------------*/
-
 .content {
   background-color: var(--background);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.footer {
+  color: var(--text) !important;
+  background-color: var(--details) !important;
 }
 
 .product-card {

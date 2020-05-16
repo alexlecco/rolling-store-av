@@ -27,7 +27,6 @@ export default class App extends Component {
         },
         {
           id: 'prod2',
-
           name: 'zapatillas',
           brand: 'Nike',
           price: 3500
@@ -132,7 +131,6 @@ export default class App extends Component {
               />
             </div>
           </Route>
-
           <Route path="/product">
             <div className='App-container'>
               <Product
