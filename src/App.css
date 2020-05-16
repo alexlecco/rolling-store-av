@@ -6,6 +6,8 @@
   --test1: red;
   --test2: blue;
   --test3: yellow;
+  --white: #fff;
+  --black: #000;
 }
 
 .App-container {
@@ -45,6 +47,7 @@
 
 .header-search {
   display: flex;
+  position: relative;
   justify-content: center;
   margin-top: 15px;
 }
@@ -53,6 +56,16 @@
   display: flex;
   justify-content: center;
   font-size: 16px;
+}
+
+.clear-icon {
+  color: var(--secondary);
+  top: -17px;
+  position: absolute;
+  z-index: 9999;
+  right: 60px;
+  bottom: 0;
+  cursor: pointer;
 }
 
 /*-------------------------------------------------------------------*/

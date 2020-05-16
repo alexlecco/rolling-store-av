@@ -14,6 +14,7 @@ export default class CustomHeader extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.updateList = this.props.updateList.bind(this);
+        this.saludar = this.props.saludar.bind(this);
     }
     
     setRedirectToMain = () => {
@@ -47,6 +48,11 @@ export default class CustomHeader extends Component {
         this.props.updateTerm(term)
     }
 
+    handleClearTerm() {
+        this.props.updateTerm('')
+
+    }
+
     handleSearch(term) {
         const localTerm = term;
         let currentProducts = [];
@@ -71,25 +77,32 @@ export default class CustomHeader extends Component {
         const { username } = this.props;
 
         return(
-            <Header className="header">
+            <Header className='header'>
                 <Row>
                     <Col xs={{ span: 5 }} lg={{ span: 3 }}>
                         {this.renderRedirectToMain()}
-                        <img src={logo} className="header-logo" alt="logo" onClick={this.setRedirectToMain} />
+                        <img src={logo} className='header-logo' alt='logo' onClick={this.setRedirectToMain} />
                     </Col>
                     <Col xs={{ span: 19 }} lg={{ span: 16 }}>
-                        <div className="header-search">
+                        <div className='header-search'>
                             {this.renderRedirectToResults()}
                             <Search
-                                placeholder="¿Que queres comprar?"
+                                placeholder='¿Que queres comprar?'
                                 onSearch={() => this.handleSearch(this.props.term)}
                                 onChange={this.handleChange}
+                                value={this.props.term}
                                 enterButton
                             />
+                            {
+                                this.props.term !== '' ?
+                                <div className={'clear-icon'} onClick={() => this.handleClearTerm()}>x</div>
+                                :
+                                <div />
+                            }
                         </div>
                     </Col>
                     <Col xs={{ span: 0 }} lg={{ span: 5 }}>
-                        <div className="header-greetings">Bienvenido {username}</div>
+                        <div className='header-greetings'>Bienvenido {username}</div>
                     </Col>
                 </Row>
             </Header>

@@ -81,6 +81,13 @@ export default class App extends Component {
       results: [],
       term: ''
     }
+    this.updateTerm = this.updateTerm.bind(this);
+    this.updateList = this.updateList.bind(this);
+    this.saludar = this.saludar.bind(this);
+  }
+
+  saludar() {
+    alert("hola")
   }
 
   updateTerm(term) {
@@ -101,6 +108,7 @@ export default class App extends Component {
     const { username, products, term, results } = this.state;
     const updateTerm = this.updateTerm.bind(this);
     const updateList = this.updateList.bind(this);
+    const saludar = this.saludar.bind(this);
 
     return (
       <Router>
@@ -110,6 +118,7 @@ export default class App extends Component {
           updateTerm={updateTerm}
           updateList={updateList}
           products={products}
+          saludar={saludar}
         />
  
         <Switch>
