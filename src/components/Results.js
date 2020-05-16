@@ -5,9 +5,8 @@ import { Redirect } from 'react-router-dom'
 
 import ProductCard from './ProductCard';
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 const { Search } = Input;
-
 
 export default class Results extends Component {
     constructor(props) {
@@ -66,10 +65,6 @@ export default class Results extends Component {
                         }
                     </Row>
                 </Content>
- 
-                <Footer className="footer">
-                    Footer
-                </Footer>
             </Layout>
         )
     }

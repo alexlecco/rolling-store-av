@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main';
 import Results from './components/Results';
+import CustomFooter from './components/CustomFooter';
 import {
   BrowserRouter as Router,
   Switch,
@@ -126,6 +127,8 @@ export default class App extends Component {
           </Route>
 
         </Switch>
+        
+        <CustomFooter />
       </Router>
     );
   }
