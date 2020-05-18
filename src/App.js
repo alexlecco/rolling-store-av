@@ -12,6 +12,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { firebaseApp } from './firebase';
 
 export default class App extends Component {
   constructor(props) {
@@ -25,6 +26,28 @@ export default class App extends Component {
     this.updateTerm = this.updateTerm.bind(this);
     this.updateList = this.updateList.bind(this);
     this.saludar = this.saludar.bind(this);
+
+    this.productsRef = firebaseApp.database().ref().child('products');
+  }
+
+  componentDidMount() {
+    this.listenForProducts(this.productsRef);
+  }
+
+  listenForProducts(productsRef) {
+    productsRef.on('value', snap => {
+      let products = [];
+      snap.forEach(child => {
+        products.push({
+          name: child.val().name,
+          brand: child.val().brand,
+          price: child.val().price,
+          id: child.val().id
+        });
+      });
+
+      this.setState({ products });
+    });
   }
 
   saludar() {
