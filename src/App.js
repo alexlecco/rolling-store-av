@@ -12,80 +12,42 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { firebaseApp } from './firebase';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: 'Alex',
-      products: [
-        {
-          id: 'prod1',
-          name: 'notebook',
-          brand: 'Asus',
-          price: 19000
-        },
-        {
-          id: 'prod2',
-          name: 'zapatillas',
-          brand: 'Nike',
-          price: 3500
-        },
-        {
-          id: 'prod3',
-          name: 'juego de ps4',
-          brand: 'Dark Souls',
-          price: 5000
-        },
-        {
-          id: 'prod4',
-          name: 'juego de ps4',
-          brand: 'The last of us',
-          price: 5000
-        },
-        {
-          id: 'prod5',
-          name: 'juego de ps4',
-          brand: 'Crash Bandicoot',
-          price: 5000
-        },
-        {
-          id: 'prod6',
-          name: 'juego de ps4',
-          brand: 'Fifa 20',
-          price: 5000
-        },
-        {
-          id: 'prod7',
-          name: 'juego de ps4',
-          brand: 'Spider Man',
-          price: 5000
-        },
-        {
-          id: 'prod8',
-          name: 'juego de ps4',
-          brand: 'God of War',
-          price: 5000
-        },
-        {
-          id: 'prod9',
-          name: 'juego de ps4',
-          brand: 'Uncharted',
-          price: 5000
-        },
-        {
-          id: 'prod10',
-          name: 'juego de ps4',
-          brand: 'Brawlhall',
-          price: 5000
-        }
-      ],
+      products: [],
       results: [],
       term: ''
     }
     this.updateTerm = this.updateTerm.bind(this);
     this.updateList = this.updateList.bind(this);
     this.saludar = this.saludar.bind(this);
+
+    this.productsRef = firebaseApp.database().ref().child('products');
+  }
+
+  componentDidMount() {
+    this.listenForProducts(this.productsRef);
+  }
+
+  listenForProducts(productsRef) {
+    productsRef.on('value', snap => {
+      let products = [];
+      snap.forEach(child => {
+        products.push({
+          name: child.val().name,
+          brand: child.val().brand,
+          price: child.val().price,
+          id: child.val().id
+        });
+      });
+
+      this.setState({ products });
+    });
   }
 
   saludar() {

@@ -1,0 +1,64 @@
+{
+  "products": {
+    "prod01": {
+      "brand": "Asus",
+      "id": "prod01",
+      "name": "notebook",
+      "price": 19000
+    },
+    "prod02": {
+      "brand": "Asus",
+      "id": "prod02",
+      "name": "zapatillas",
+      "price": 3500
+    },
+    "prod03": {
+      "brand": "Asus",
+      "id": "prod03",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod04": {
+      "brand": "The last of us",
+      "id": "prod04",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod05": {
+      "brand": "Crash Bandicoot",
+      "id": "prod05",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod06": {
+      "brand": "Fifa 20",
+      "id": "prod06",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod07": {
+      "brand": "Spider Man",
+      "id": "prod07",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod08": {
+      "brand": "God of War",
+      "id": "prod08",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod09": {
+      "brand": "Uncharted",
+      "id": "prod09",
+      "name": "juego de ps4",
+      "price": 19000
+    },
+    "prod10": {
+      "brand": "Brawlhalla",
+      "id": "prod10",
+      "name": "juego de ps4",
+      "price": 19000
+    }
+  }
+}
