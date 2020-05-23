@@ -22,7 +22,11 @@ export default class App extends Component {
       products: [],
       results: [],
       term: '',
-      cart: {}
+      cart: {
+        productToBuy: {},
+        creditCard: '',
+        shippingAddress: ''
+      }
     }
     this.updateTerm = this.updateTerm.bind(this);
     this.updateList = this.updateList.bind(this);
@@ -72,8 +76,14 @@ export default class App extends Component {
       this.setState({results: products})
   }
 
-  updateCart(prod) {
-    this.setState({ cart: {...prod} })
+  updateCart(prod, creditCard = '', shippingAddress = '') {
+    this.setState({
+      cart: {
+        productToBuy: {...prod},
+        creditCard,
+        shippingAddress
+      }
+    })
   }
 
   render() {
