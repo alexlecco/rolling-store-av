@@ -25,7 +25,7 @@ export default class App extends Component {
       cart: {
         productToBuy: {},
         card: '',
-        shippingAdress: ''
+        shippingAddress: ''
       }
     }
     this.updateTerm = this.updateTerm.bind(this);
@@ -71,7 +71,7 @@ export default class App extends Component {
       cart: {
         productToBuy: {...prod},
         card: card,
-        shippingAdress: shippingAddress
+        shippingAddress: shippingAddress
       }
     })
   }
