@@ -6,106 +6,107 @@ const { Header } = Layout;
 const { Search } = Input;
 
 export default class CustomHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirectToResults: false,
-            redirectToMain: false
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.updateList = this.props.updateList.bind(this);
-        this.saludar = this.props.saludar.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirectToResults: false,
+      redirectToMain: false
     }
-    
-    setRedirectToMain = () => {
-        this.setState({
-            redirectToMain: true,
-            redirectToResults: false,
-        })
+    this.handleChange = this.handleChange.bind(this);
+    this.updateList = this.props.updateList.bind(this);
+    this.saludar = this.props.saludar.bind(this);
+  }
+  
+  setRedirectToMain = () => {
+    this.setState({
+      redirectToMain: true,
+      redirectToResults: false,
+    })
+  }
+
+  renderRedirectToMain = () => {
+    if (this.state.redirectToMain) {
+      return <Redirect to='/' />
     }
+  }
 
-    renderRedirectToMain = () => {
-        if (this.state.redirectToMain) {
-           return <Redirect to='/' />
-        }
+  setRedirectToResults = () => {
+    this.setState({
+      redirectToResults: true,
+      redirectToMain: false,
+    })
+  }
+
+  renderRedirectToResults = () => {
+    if (this.state.redirectToResults) {
+      return <Redirect to='/results' />
     }
+  }
 
-    setRedirectToResults = () => {
-        this.setState({
-            redirectToResults: true,
-            redirectToMain: false,
-        })
-    }
+  handleChange(e) {
+    let term = e.target.value;
+    this.props.updateTerm(term)
+  }
 
-    renderRedirectToResults = () => {
-        if (this.state.redirectToResults) {
-           return <Redirect to='/results' />
-        }
-    }
+  handleClearTerm() {
+    this.props.updateTerm('')
+  }
 
-    handleChange(e) {
-        let term = e.target.value;
-        this.props.updateTerm(term)
-    }
+  handleSearch(term) {
+    const localTerm = term;
+    let currentProducts = [];
+    let newProducts = [];
 
-    handleClearTerm() {
-        this.props.updateTerm('')
-
-    }
-
-    handleSearch(term) {
-        const localTerm = term;
-        let currentProducts = [];
-        let newProducts = [];
-
-        if (localTerm !== '') {
-            currentProducts = this.props.products;
-            newProducts = currentProducts.filter(item => {
-                const lc = item.name.toLowerCase();
-                const filter = localTerm.toLowerCase();
-                return lc.includes(filter);
-            });
-            this.props.updateList(newProducts, localTerm)
-        } else {
-            newProducts = this.props.products;
-        }
-
-        this.setRedirectToResults();
+    if (localTerm !== '' && localTerm.length > 2) {
+      currentProducts = this.props.products;
+      newProducts = currentProducts.filter(item => {
+        const lc = item.name.toLowerCase();
+        const filter = localTerm.toLowerCase();
+        return lc.includes(filter);
+      });
+      this.props.updateList(newProducts, localTerm)
+    } else {
+      alert("debe ingresar al menos 3 caracteres")
+      this.props.updateList(this.props.products, localTerm)
+      return true
     }
 
-    render() {
-        const { username } = this.props;
+    this.setRedirectToResults();
+  }
 
-        return(
-            <Header className='header'>
-                <Row>
-                    <Col xs={{ span: 5 }} lg={{ span: 3 }}>
-                        {this.renderRedirectToMain()}
-                        <img src={logo} className='header-logo' alt='logo' onClick={this.setRedirectToMain} />
-                    </Col>
-                    <Col xs={{ span: 19 }} lg={{ span: 16 }}>
-                        <div className='header-search'>
-                            {this.renderRedirectToResults()}
-                            <Search
-                                placeholder='¿Que queres comprar?'
-                                onSearch={() => this.handleSearch(this.props.term)}
-                                onChange={this.handleChange}
-                                value={this.props.term}
-                                enterButton
-                            />
-                            {
-                                this.props.term !== '' ?
-                                <div className={'clear-icon'} onClick={() => this.handleClearTerm()}>x</div>
-                                :
-                                <div />
-                            }
-                        </div>
-                    </Col>
-                    <Col xs={{ span: 0 }} lg={{ span: 5 }}>
-                        <div className='header-greetings'>Bienvenido {username}</div>
-                    </Col>
-                </Row>
-            </Header>
-        );
-    }
+  render() {
+    const { username } = this.props;
+
+    return(
+      <Header className='header'>
+        <Row>
+          <Col xs={{ span: 5 }} lg={{ span: 3 }}>
+            {this.renderRedirectToMain()}
+            <img src={logo} className='header-logo' alt='logo' onClick={this.setRedirectToMain} />
+          </Col>
+          <Col xs={{ span: 19 }} lg={{ span: 16 }}>
+            <div className='header-search'>
+              {this.renderRedirectToResults()}
+              <Search
+                placeholder='¿Que queres comprar?'
+                onSearch={() => this.handleSearch(this.props.term)}
+                onChange={this.handleChange}
+                value={this.props.term}
+                enterButton
+              />
+              {
+                this.props.term !== '' ?
+                <div className={'clear-icon'} onClick={() => this.handleClearTerm()}>x</div>
+                :
+                <div />
+              }
+            </div>
+          </Col>
+          <Col xs={{ span: 0 }} lg={{ span: 5 }}>
+            <div className='header-greetings'>Bienvenido {username}</div>
+          </Col>
+        </Row>
+      </Header>
+    );
+  }
 }

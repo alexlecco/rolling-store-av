@@ -125,6 +125,7 @@
 .product-imageContainer {
   position: relative;
   background-color: white;
+  filter: brightness(90%);
 }
 
 .product-image {
