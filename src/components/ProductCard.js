@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 export default class ProductCard extends Component {
   getPhoto(prodId) {
@@ -9,16 +10,24 @@ export default class ProductCard extends Component {
     const { name, brand, price, id } = this.props.product;
 
     return(
-      <Fragment>
-        <div className="product-card">
-          <div className="product-imageContainer">
-            <img src={this.getPhoto(id)} className="product-image" alt="product"/>
+      <Link to= {{
+          pathname: '/product/' + id,
+          state: {
+            product: this.props.product
+          }
+        }}
+      >
+        <div style={{ cursor: 'pointer', margin: 20 }}>
+          <div className="product-card">
+            <div className="product-imageContainer">
+              <img src={this.getPhoto(id)} className="product-image" alt="product"/>
+            </div>
+            <div>producto: {name} </div>
+            <div>marca: {brand} </div>
+            <div>precio: {price} </div>
           </div>
-          <div>producto: {name} </div>
-          <div>marca: {brand} </div>
-          <div>precio: {price} </div>
-        </div>
-      </Fragment>
+        </div>  
+      </Link>
     )
   }
 }

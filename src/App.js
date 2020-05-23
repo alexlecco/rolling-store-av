@@ -42,6 +42,8 @@ export default class App extends Component {
           name: child.val().name,
           brand: child.val().brand,
           price: child.val().price,
+          description: child.val().description,
+          shippingTime: child.val().shippingTime,
           id: child.val().id
         });
       });
@@ -93,11 +95,14 @@ export default class App extends Component {
               />
             </div>
           </Route>
-          <Route path="/product">
-            <div className='App-container'>
-              <Product
-              />
-            </div>
+
+          <Route
+            path="/product/:id"
+            render={props =>
+              <div className='App-container'>
+                <Product {...props} />
+              </div>
+            }>
           </Route>
 
           <Route path="/cart">

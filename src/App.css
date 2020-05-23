@@ -118,8 +118,11 @@
 
 .product-card {
   background-color: var(--secondary);
-  margin: 10px;
   padding: 15px;
+}
+
+.products-container {
+  padding: 0 30px;
 }
 
 .product-imageContainer {
@@ -134,6 +137,31 @@
   display: block;
   height: 200px;
   max-width: 100%;
+}
+
+/*-------------------------------------------------------------------*/
+.productInfo {
+  background-color: var(--secondary);
+  padding: 15px;
+  min-width: 600px;
+  padding: 20px;
+  margin: 0 40px;
+}
+
+.productInfo-imageContainer {
+  position: relative;
+  background-color: white;
+  filter: brightness(90%);
+  padding: 20px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.productInfo-description {
+  padding: 20px;
+  text-align: center;
 }
 
 /*-------------------------------------------------------------------*/

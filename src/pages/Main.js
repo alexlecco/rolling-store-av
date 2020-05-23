@@ -11,15 +11,17 @@ export default class Main extends Component {
       <Layout>
         <Content className="content">
           <p> Basado en tu última visita </p>
-          <Row>
-          {
-            products.map(prod => (
-              <Col xs={{ span: 24 }} lg={{ span: 8 }}>
-                <ProductCard key={prod.id} product={prod} />
-              </Col>
-            ))
-          }
-          </Row>
+          <div className="products-container">
+            <Row>
+            {
+              products.map(prod => (
+                <Col xs={{ span: 24 }} lg={{ span: 8 }}>
+                  <ProductCard key={prod.id} product={prod} />
+                </Col>
+              ))
+            }
+            </Row>
+          </div>
         </Content>
       </Layout>
     )
