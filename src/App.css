@@ -97,9 +97,10 @@
   top: -17px;
   position: absolute;
   z-index: 9999;
-  right: 60px;
+  right: 47px;
   bottom: 0;
   cursor: pointer;
+  padding: 0 15px;
 }
 
 /*-------------------------------------------------------------------*/

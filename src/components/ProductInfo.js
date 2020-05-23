@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Row, Col, Button } from 'antd'
+import { Link } from 'react-router-dom'
 
 export default class ProductInfo extends Component {
   getPhoto(prodId) {
@@ -29,7 +30,15 @@ export default class ProductInfo extends Component {
                 <br />
                 <div style={{ textAlign: 'left' }}>descripción: {description}</div>
                 <br />
-                <Button>Comprar</Button>
+                
+                <Link to={{
+                  pathname: '/cart/',
+                  state: {
+                    product: this.props.product
+                  }
+                }}>
+                  <Button>Comprar</Button>
+                </Link>
               </div>
             </Col>
           </Row>

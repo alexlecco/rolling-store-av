@@ -21,9 +21,11 @@ export default class App extends Component {
       username: 'Alex',
       products: [],
       results: [],
-      term: ''
+      term: '',
+      cart: []
     }
     this.updateTerm = this.updateTerm.bind(this);
+    this.updateCart = this.updateCart.bind(this);
     this.updateList = this.updateList.bind(this);
     this.saludar = this.saludar.bind(this);
 
@@ -60,6 +62,10 @@ export default class App extends Component {
     this.setState({ term })
   }
 
+  updateCart(prod) {
+    this.setState({ cart: [{...prod}] })
+  }
+
   updateList(newList, term) {
     const { products } = this.state;
     term !== '' ?
@@ -73,6 +79,7 @@ export default class App extends Component {
   render() {
     const { username, products, term, results } = this.state;
     const updateTerm = this.updateTerm.bind(this);
+    const updateCart = this.updateCart.bind(this);
     const updateList = this.updateList.bind(this);
     const saludar = this.saludar.bind(this);
 
@@ -105,11 +112,13 @@ export default class App extends Component {
             }>
           </Route>
 
-          <Route path="/cart">
-            <div className='App-container'>
-              <Cart
-              />
-            </div>
+          <Route 
+            path="/cart"
+            render={props =>
+              <div className='App-container'>
+                <Cart {...props} updateCart={updateCart} />
+              </div>  
+            }>
           </Route>
 
           <Route path="/success">

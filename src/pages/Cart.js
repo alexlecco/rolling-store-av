@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Layout, Row, Col } from 'antd';
+import ProductCard from '../components/ProductCard'
 const { Content } = Layout;
 
 export default class Cart extends Component {
-    render() {
+  componentDidMount() {
+    const { product } = this.props.location.state
+    this.props.updateCart(product)
+  }
 
-        return(
-            <Layout>
-                <Content className="content">
-                    <p> Mi carrito </p>
-                </Content>
-            </Layout>
-        )
-    }
+  render() {
+    const { product } = this.props.location.state
+
+    return(
+      <Layout>
+        <Content className="content">
+          <p> Mi carrito </p>
+          <ProductCard key={product.id} product={product} />
+        </Content>
+      </Layout>
+    )
+  }
 }
