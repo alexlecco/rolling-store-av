@@ -166,7 +166,18 @@
 }
 
 /*-------------------------------------------------------------------*/
+.cartDetails {
+  background-color: var(--secondary);
+  padding: 15px;
+  margin: 20px;
+  color: white;
+}
 
+.cartDetails-address {
+  width: 100%;
+}
+
+/*-------------------------------------------------------------------*/
 
 .footer {
   color: var(--text) !important;
