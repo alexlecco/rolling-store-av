@@ -114,7 +114,6 @@ export default class App extends Component {
             </div>
           </Route>
 
-
           <Route path="/">
             <div className='App-container'>
               <Main
