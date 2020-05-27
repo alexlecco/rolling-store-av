@@ -15,8 +15,8 @@ export default class Main extends Component {
             <Row>
             {
               products.map(prod => (
-                <Col xs={{ span: 24 }} lg={{ span: 8 }}>
-                  <ProductCard key={prod.id} product={prod} />
+                <Col xs={{ span: 24 }} lg={{ span: 8 }} key={prod.id}>
+                  <ProductCard product={prod} />
                 </Col>
               ))
             }
