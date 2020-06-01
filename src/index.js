@@ -6,14 +6,24 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
-import reducer from './redux_reducers'
+import thunk from 'redux-thunk'
+import { createLogger } from 'redux-logger'
+import { getAllProducts } from './actions'
+import reducer from './reducers'
+
+const middleware = [ thunk ];
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
+}
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducer,
-  composeEnhancer(applyMiddleware())
+  composeEnhancer(applyMiddleware(...middleware))
 )
+
+store.dispatch(getAllProducts())
 
 ReactDOM.render(
   <Provider store={store}>

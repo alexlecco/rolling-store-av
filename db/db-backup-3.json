@@ -1,0 +1,94 @@
+{
+  "products" : {
+    "prod01" : {
+      "brand" : "Asus",
+      "id" : 1,
+      "name" : "notebook",
+      "price" : 19000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "2 días",
+      "inventory": 10
+    },
+    "prod02" : {
+      "brand" : "Asus",
+      "id" : 2,
+      "name" : "zapatillas",
+      "price" : 3500,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "3 días",
+      "inventory": 10
+    },
+    "prod03" : {
+      "brand" : "Dark Souls",
+      "id" : 3,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "5 días",
+      "inventory": 10
+    },
+    "prod04" : {
+      "brand" : "The last of us",
+      "id" : 4,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "2 días",
+      "inventory": 10
+    },
+    "prod05" : {
+      "brand" : "Crash Bandicoot",
+      "id" : 5,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "1 semana",
+      "inventory": 10
+    },
+    "prod06" : {
+      "brand" : "Fifa 20",
+      "id" : 6,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "6 días",
+      "inventory": 10
+    },
+    "prod07" : {
+      "brand" : "Spider Man",
+      "id" : 7,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "12 días",
+      "inventory": 10
+    },
+    "prod08" : {
+      "brand" : "God of War",
+      "id" : 8,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "3 días",
+      "inventory": 10
+    },
+    "prod09" : {
+      "brand" : "Uncharted",
+      "id" : 9,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "1 día",
+      "inventory": 10
+    },
+    "prod10" : {
+      "brand" : "Brawlhalla",
+      "id" : 10,
+      "name" : "juego de ps4",
+      "price" : 4000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+      "shippingTime": "2 días",
+      "inventory": 10
+    }
+  }
+}

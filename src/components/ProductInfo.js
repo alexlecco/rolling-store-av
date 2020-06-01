@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { Row, Col, Button } from 'antd'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export default class ProductInfo extends Component {
+class ProductInfo extends Component {
   getPhoto(prodId) {
     return `https://firebasestorage.googleapis.com/v0/b/rolling-store-av-259fe.appspot.com/o/products%2F${prodId}.png?alt=media`
   }
 
   render() {
     const { name, brand, price, id, description, shippingTime } = this.props.product;
+    const { onAddToCartClicked } = this.props
     
     return(
       <Fragment>
@@ -37,7 +39,9 @@ export default class ProductInfo extends Component {
                     product: this.props.product
                   }
                 }}>
-                  <Button>Comprar</Button>
+                  <Button onClick={onAddToCartClicked}>
+                    Comprar
+                  </Button>
                 </Link>
               </div>
             </Col>
@@ -47,3 +51,17 @@ export default class ProductInfo extends Component {
     )
   }
 }
+
+ProductInfo.propTypes = {
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    shippingTime: PropTypes.string.isRequired
+  }).isRequired,
+  onAddToCartClicked: PropTypes.func.isRequired
+}
+
+export default ProductInfo

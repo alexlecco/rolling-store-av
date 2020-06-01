@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Row, Col } from 'antd';
+import { Layout } from 'antd';
 const { Content } = Layout;
 
 export default class Success extends Component {
