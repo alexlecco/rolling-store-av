@@ -1,5 +1,19 @@
 import shop from '../api/shop'
+import { firebaseApp } from '../firebase'
 import * as types from '../constants/ActionTypes'
+
+const Products = firebaseApp.database().ref().child('products');
+
+export function fetchProducts() {
+  return dispatch => {
+    Products.on('value', snapshot => {
+      dispatch({
+        type: types.FETCH_PRODUCTS,
+        products: snapshot.val()
+      })
+    })
+  }
+}
 
 const receiveProducts = products => ({
   type: types.RECEIVE_PRODUCTS,
