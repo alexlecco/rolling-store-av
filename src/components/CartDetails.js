@@ -1,19 +1,39 @@
 import React, { Component, Fragment } from 'react';
 import { Radio, Input, Button } from 'antd';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { updateCart } from '../actions'
+import { getTotal } from '../reducers'
 
 class CartDetails extends Component {
+  state = {
+    creditCard: '',
+    shippingAddress: ''
+  }
+
+  onWriteAddress = e => {
+    this.setState({ shippingAddress: e.target.value })
+  }
+
+  onSelectCreditCard = e => {
+    this.setState({ creditCard: e.target.value })
+  }
+
   render() {
     const radioStyle = { display: 'block' };
-    const { shippingAddress, creditCard } = this.props
+    const { shippingAddress, creditCard } = this.state
+    const { total, updateCart } = this.props
 
     return(
       <Fragment>
         <div className="cartDetails">
+          <p>Total: ${ total }</p>
+
           <p>¿Donde queres recibir tu compra?</p>
-          <Input value={shippingAddress}/>
+          <Input value={shippingAddress} onChange={this.onWriteAddress} />
           
           <p>¿Que tarjeta queres usar?</p>
-          <Radio.Group onChange={() => {}} value={creditCard}>
+          <Radio.Group value={creditCard} onChange={this.onSelectCreditCard}>
             <Radio style={radioStyle} value={'visa-credito'}>
               <p style={{ color: 'white' }}>Visa Credito</p>
             </Radio>
@@ -25,7 +45,7 @@ class CartDetails extends Component {
             </Radio>
           </Radio.Group>
 
-          <Button onClick={() => {}}>
+          <Button onClick={() => updateCart(shippingAddress, creditCard)}>
             Confirmar compra
           </Button>
         </div>
@@ -34,4 +54,16 @@ class CartDetails extends Component {
   }
 }
 
-export default CartDetails
+CartDetails.propTypes = {
+  total: PropTypes.string.isRequired,
+  updateCart: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  total: getTotal(state)
+})
+
+export default connect(
+  mapStateToProps,
+  { updateCart }
+)(CartDetails)

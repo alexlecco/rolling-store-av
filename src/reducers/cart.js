@@ -1,14 +1,15 @@
 import {
   ADD_TO_CART,
   CHECKOUT_REQUEST,
-  CHECKOUT_FAILURE
+  CHECKOUT_FAILURE,
+  UPDATE_CART
 } from '../constants/ActionTypes'
 
 const initialState = {
   addedIds: [],
   quantityById: {},
-  creditCard: 'visa-credito',
-  shippingAddress: 'Miguel Lillo 40',
+  creditCard: '',
+  shippingAddress: '',
   customer: 'Alex'
 }
 
@@ -63,6 +64,14 @@ const cart = (state = initialState, action) => {
       return initialState
     case CHECKOUT_FAILURE:
       return action.cart
+    case UPDATE_CART:
+      return {
+        addedIds:        state.addedIds,
+        quantityById:    state.quantityById,
+        customer:        state.customer,
+        shippingAddress: action.payload.newShippingAddress,
+        creditCard:      action.payload.newCreditCard
+      }
     default:
       return {
         addedIds:        addedIds(state.addedIds, action),

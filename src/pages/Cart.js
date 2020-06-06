@@ -15,10 +15,6 @@ import CartDetails from '../components/CartDetails'
 const { Content } = Layout;
 
 class Cart extends Component {
-  componentDidMount() {
-    const { product } = this.props.location.state
-  }
-
   render() {
     const { product } = this.props.location.state
     const { customer, shippingAddress, creditCard } = this.props

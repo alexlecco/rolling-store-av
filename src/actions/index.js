@@ -39,6 +39,16 @@ export const addToCart = productId => (dispatch, getState) => {
   }
 }
 
+export const updateCart = (newShippingAddress, newCreditCard) => (dispatch) => {
+  dispatch({
+    type: types.UPDATE_CART,
+    payload: {
+      newShippingAddress,
+      newCreditCard
+    }
+  })
+}
+
 export const checkout = products => (dispatch, getState) => {
   const { cart } = getState()
 
