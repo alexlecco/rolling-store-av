@@ -1,33 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import { Radio, Input, Button } from 'antd';
 
-export default class CartDetails extends Component {
-  state = {
-    card: '',
-    address: ''
-  }
-  
-  onSelectCard = e => {
-    this.setState({ card: e.target.value });
-  }
-
-  onWriteAddress = e => {
-    this.setState({ address: e.target.value });
-  }
-
+class CartDetails extends Component {
   render() {
     const radioStyle = { display: 'block' };
-    const { card, address } = this.state;
-    const { product, updateCart } = this.props
+    const { shippingAddress, creditCard } = this.props
 
     return(
       <Fragment>
         <div className="cartDetails">
           <p>¿Donde queres recibir tu compra?</p>
-          <Input value={address} onChange={this.onWriteAddress} />
+          <Input value={shippingAddress}/>
           
           <p>¿Que tarjeta queres usar?</p>
-          <Radio.Group onChange={this.onSelectCard} value={card}>
+          <Radio.Group onChange={() => {}} value={creditCard}>
             <Radio style={radioStyle} value={'visa-credito'}>
               <p style={{ color: 'white' }}>Visa Credito</p>
             </Radio>
@@ -39,7 +25,7 @@ export default class CartDetails extends Component {
             </Radio>
           </Radio.Group>
 
-          <Button onClick={() => updateCart(product, card, address)}>
+          <Button onClick={() => {}}>
             Confirmar compra
           </Button>
         </div>
@@ -47,3 +33,5 @@ export default class CartDetails extends Component {
     )
   }
 }
+
+export default CartDetails

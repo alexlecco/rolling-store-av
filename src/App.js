@@ -19,17 +19,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Alex',
       results: [],
-      term: '',
-      cart: {
-        productToBuy: {},
-        card: '',
-        shippingAddress: ''
-      }
+      term: ''
     }
     this.updateTerm = this.updateTerm.bind(this);
-    this.updateCart = this.updateCart.bind(this);
     this.updateList = this.updateList.bind(this);
   }
 
@@ -37,17 +30,8 @@ class App extends Component {
     this.setState({ term })
   }
 
-  updateCart(card = '', shippingAddress = '') {
-    this.setState({
-      cart: {
-        card: card,
-        shippingAddress: shippingAddress
-      }
-    })
-  }
-
   updateList(newList, term) {
-    const { products } = this.state;
+    const { products } = this.props;
     term !== '' ?
       this.setState({
         results: newList,
@@ -57,16 +41,14 @@ class App extends Component {
   }
 
   render() {
-    const { username, term, results } = this.state;
+    const { term, results } = this.state;
     const { products } = this.props;
     const updateTerm = this.updateTerm.bind(this);
-    const updateCart = this.updateCart.bind(this);
     const updateList = this.updateList.bind(this);
 
     return (
       <Router>
         <CustomHeader
-          username={username}
           term={term}
           updateTerm={updateTerm}
           updateList={updateList}
@@ -95,7 +77,7 @@ class App extends Component {
             path="/cart"
             render={props =>
               <div className='App-container'>
-                <Cart {...props} updateCart={updateCart} />
+                <Cart {...props} />
               </div>  
             }>
           </Route>

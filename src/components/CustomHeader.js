@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import logo from '../logo.png';
 import { Layout, Row, Col, Input } from 'antd';
 import { Redirect } from 'react-router-dom'
+import {
+  getInfoCustomer
+} from '../reducers'
+import { connect } from 'react-redux'
 const { Header } = Layout;
 const { Search } = Input;
 
-export default class CustomHeader extends Component {
+class CustomHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -74,7 +78,7 @@ export default class CustomHeader extends Component {
   }
 
   render() {
-    const { username } = this.props;
+    const { customer } = this.props;
 
     return(
       <Header className='header'>
@@ -102,10 +106,18 @@ export default class CustomHeader extends Component {
             </div>
           </Col>
           <Col xs={{ span: 0 }} lg={{ span: 5 }}>
-            <div className='header-greetings'>Bienvenido {username}</div>
+            <div className='header-greetings'>Bienvenido {customer}</div>
           </Col>
         </Row>
       </Header>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  customer: getInfoCustomer(state)
+})
+
+export default connect(
+  mapStateToProps
+)(CustomHeader)
