@@ -4,15 +4,17 @@ import * as types from '../constants/ActionTypes'
 
 const Products = firebaseApp.database().ref().child('products');
 
-export function fetchProducts() {
-  return dispatch => {
-    Products.on('value', snapshot => {
-      dispatch({
-        type: types.FETCH_PRODUCTS,
-        products: snapshot.val()
-      })
-    })
+const fetchProducts = products => {
+  return {
+    type: types.FETCH_PRODUCTS,
+    products: products
   }
+}
+
+export const getFetchedProducts = () => dispatch => {
+  Products.on('value', snapshot => {
+    dispatch(fetchProducts(snapshot.val()))
+  })
 }
 
 const receiveProducts = products => ({

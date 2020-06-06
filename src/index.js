@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
-import { fetchProducts } from './actions'
+import { getFetchedProducts } from './actions'
 import reducer from './reducers'
 
 const middleware = [ thunk ];
@@ -23,7 +23,7 @@ const store = createStore(
   composeEnhancer(applyMiddleware(...middleware))
 )
 
-store.dispatch(fetchProducts())
+store.dispatch(getFetchedProducts())
 
 ReactDOM.render(
   <Provider store={store}>
