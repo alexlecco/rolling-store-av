@@ -12,14 +12,14 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { firebaseApp } from './firebase';
+import { connect } from 'react-redux';
+import { getVisibleProducts } from './reducers/products';
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: 'Alex',
-      products: [],
       results: [],
       term: '',
       cart: {
@@ -31,45 +31,15 @@ export default class App extends Component {
     this.updateTerm = this.updateTerm.bind(this);
     this.updateCart = this.updateCart.bind(this);
     this.updateList = this.updateList.bind(this);
-    this.saludar = this.saludar.bind(this);
-
-    this.productsRef = firebaseApp.database().ref().child('products');
-  }
-
-  componentDidMount() {
-    this.listenForProducts(this.productsRef);
-  }
-
-  listenForProducts(productsRef) {
-    productsRef.on('value', snap => {
-      let products = [];
-      snap.forEach(child => {
-        products.push({
-          name: child.val().name,
-          brand: child.val().brand,
-          price: child.val().price,
-          description: child.val().description,
-          shippingTime: child.val().shippingTime,
-          id: child.val().id
-        });
-      });
-
-      this.setState({ products });
-    });
-  }
-
-  saludar() {
-    alert("hola")
   }
 
   updateTerm(term) {
     this.setState({ term })
   }
 
-  updateCart(prod, card = '', shippingAddress = '') {
+  updateCart(card = '', shippingAddress = '') {
     this.setState({
       cart: {
-        productToBuy: {...prod},
         card: card,
         shippingAddress: shippingAddress
       }
@@ -87,11 +57,11 @@ export default class App extends Component {
   }
 
   render() {
-    const { username, products, term, results } = this.state;
+    const { username, term, results } = this.state;
+    const { products } = this.props;
     const updateTerm = this.updateTerm.bind(this);
     const updateCart = this.updateCart.bind(this);
     const updateList = this.updateList.bind(this);
-    const saludar = this.saludar.bind(this);
 
     return (
       <Router>
@@ -101,7 +71,6 @@ export default class App extends Component {
           updateTerm={updateTerm}
           updateList={updateList}
           products={products}
-          saludar={saludar}
         />
  
         <Switch>
@@ -152,3 +121,11 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  products: getVisibleProducts(state.products)
+})
+
+export default connect(
+  mapStateToProps
+)(App)

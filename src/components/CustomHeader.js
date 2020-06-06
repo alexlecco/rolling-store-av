@@ -14,7 +14,6 @@ export default class CustomHeader extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.updateList = this.props.updateList.bind(this);
-    this.saludar = this.props.saludar.bind(this);
   }
   
   setRedirectToMain = () => {
