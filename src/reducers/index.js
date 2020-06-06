@@ -10,6 +10,9 @@ export default combineReducers({
 const getAddedIds = state => fromCart.getAddedIds(state.cart)
 const getQuantity = (state, id) => fromCart.getQuantity(state.cart, id)
 const getProduct = (state, id) => fromProducts.getProduct(state.products, id)
+const getCustomer = state => fromCart.getCustomer(state.cart)
+const getCreditCard = state => fromCart.getCreditCard(state.cart)
+const getShippingAddress = state => fromCart.getShippingAddress(state.cart)
 
 export const getTotal = state =>
   getAddedIds(state)
@@ -24,3 +27,7 @@ export const getCartProducts = state =>
     ...getProduct(state, id),
     quantity: getQuantity(state, id)
   }))
+
+export const getInfoCustomer = state => getCustomer(state)
+export const getInfoCreditCard = state => getCreditCard(state)
+export const getInfoShippingAddress = state => getShippingAddress(state)

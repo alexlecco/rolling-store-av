@@ -13,25 +13,18 @@ import {
   Route,
 } from "react-router-dom";
 import { firebaseApp } from './firebase';
+import { connect } from "react-redux";
+import { getVisibleProducts } from "./reducers/products";
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Alex',
-      products: [],
       results: [],
-      term: '',
-      cart: {
-        productToBuy: {},
-        creditCard: '',
-        shippingAddress: ''
-      }
+      term: ''
     }
     this.updateTerm = this.updateTerm.bind(this);
     this.updateList = this.updateList.bind(this);
-    this.updateCart = this.updateCart.bind(this);
-    this.saludar = this.saludar.bind(this);
 
     this.productsRef = firebaseApp.database().ref().child('products');
   }
@@ -58,10 +51,6 @@ export default class App extends Component {
     });
   }
 
-  saludar() {
-    alert("hola")
-  }
-
   updateTerm(term) {
     this.setState({ term })
   }
@@ -76,32 +65,19 @@ export default class App extends Component {
       this.setState({results: products})
   }
 
-  updateCart(prod, creditCard = '', shippingAddress = '') {
-    this.setState({
-      cart: {
-        productToBuy: {...prod},
-        creditCard,
-        shippingAddress
-      }
-    })
-  }
-
   render() {
-    const { username, products, term, results } = this.state;
+    const { term, results } = this.state;
+    const { products } = this.props
     const updateTerm = this.updateTerm.bind(this);
     const updateList = this.updateList.bind(this);
-    const updateCart = this.updateCart.bind(this);
-    const saludar = this.saludar.bind(this);
 
     return (
       <Router>
         <CustomHeader
-          username={username}
           term={term}
           updateTerm={updateTerm}
           updateList={updateList}
           products={products}
-          saludar={saludar}
         />
  
         <Switch>
@@ -126,7 +102,7 @@ export default class App extends Component {
             path="/cart"
             render={props => 
               <div className='App-container'>
-                <Cart {...props} updateCart={updateCart} />
+                <Cart {...props} />
               </div>
             }>
           </Route>
@@ -152,3 +128,11 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  products: getVisibleProducts(state.products)
+})
+
+export default connect(
+  mapStateToProps
+)(App)

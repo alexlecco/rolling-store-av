@@ -6,7 +6,10 @@ import {
   
 const initialState = {
     addedIds: [],
-    quantityById: {}
+    quantityById: {},
+    creditCard: '',
+    shippingAddress: '',
+    customer: 'Alex'
 }
 
 const addedIds = (state = initialState.addedIds, action) => {
@@ -33,21 +36,42 @@ const quantityById = (state = initialState.quantityById, action) => {
     }
 }
 
+const creditCard = ( state = initialState.creditCard ) => {
+  return state
+}
+
+const shippingAddress = ( state = initialState.shippingAddress ) => {
+  return state
+}
+
+const customer = ( state = initialState.customer ) => {
+  return state
+}
+
 export const getQuantity = (state, productId) =>
-    state.quantityById[productId] || 0
-    export const getAddedIds = state => state.addedIds
-    const cart = (state = initialState, action) => {
-    switch (action.type) {
-        case CHECKOUT_REQUEST:
-        return initialState
-      case CHECKOUT_FAILURE:
-        return action.cart
-      default:
-        return {
-          addedIds: addedIds(state.addedIds, action),
-          quantityById: quantityById(state.quantityById, action)
-        }
+  state.quantityById[productId] || 0
+
+export const getAddedIds = state => state.addedIds
+
+export const getCustomer = state => state.customer
+export const getCreditCard = state => state.creditCard
+export const getShippingAddress = state => state.shippingAddress
+  
+const cart = (state = initialState, action) => {
+  switch (action.type) {
+    case CHECKOUT_REQUEST:
+    return initialState
+  case CHECKOUT_FAILURE:
+    return action.cart
+  default:
+    return {
+      addedIds: addedIds(state.addedIds, action),
+      quantityById: quantityById(state.quantityById, action),
+      creditCard: creditCard(state.creditCard),
+      shippingAddress: shippingAddress(state.shippingAddress),
+      customer: customer(state.customer)
     }
+  }
 }
 
 export default cart

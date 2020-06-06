@@ -36,7 +36,7 @@ export default class CartDetails extends Component {
           </Radio>
         </Group>
 
-        <Button onClick={() => updateCart(product, creditCard, shippingAddress)}>
+        <Button onClick={() => {}}>
           Confirmar compra
         </Button> 
       </div>
