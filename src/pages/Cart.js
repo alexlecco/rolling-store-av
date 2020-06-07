@@ -23,11 +23,6 @@ class Cart extends Component {
     }
   }
 
-  componentDidMount() {
-    const { product } = this.props.location.state
-    this.props.updateCart(product)
-  }
-
   render() {
     const { product } = this.props.location.state
     const { customer, shippingAddress, creditCard } = this.props

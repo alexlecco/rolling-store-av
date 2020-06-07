@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Radio, Input, Button } from 'antd';
-const { Group } = Radio;
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { updateCart } from '../actions'
+import { getTotal } from '../reducers'
 
-export default class CartDetails extends Component {
+class CartDetails extends Component {
   state = {
     creditCard: '',
     shippingAddress: ''
@@ -17,29 +20,50 @@ export default class CartDetails extends Component {
   }
 
   render() {
-    const { creditCard, shippingAddress } = this.state
-    const { product, updateCart } = this.props
-    const radioStyle = { display: 'block' }
+    const radioStyle = { display: 'block' };
+    const { shippingAddress, creditCard } = this.state
+    const { total, updateCart } = this.props
 
     return(
-      <div className="cartDetails">
-        <p>¿Donde queres recibir tu compra?</p>
-        <Input value={shippingAddress} onChange={this.onWriteAddress} />
+      <Fragment>
+        <div className="cartDetails">
+          <p>Total: ${ total }</p>
 
-        <p>¿Que tarjeta querés usar?</p>
-        <Group value={creditCard} onChange={this.onSelectCreditCard}>
-          <Radio value='visa' style={radioStyle}>
-            <p style={{ color: 'white' }}>Visa</p>
-          </Radio>
-          <Radio value='mastercard' style={radioStyle}>
-            <p style={{ color: 'white' }}>MasterCard</p>
-          </Radio>
-        </Group>
+          <p>¿Donde queres recibir tu compra?</p>
+          <Input value={shippingAddress} onChange={this.onWriteAddress} />
+          
+          <p>¿Que tarjeta queres usar?</p>
+          <Radio.Group value={creditCard} onChange={this.onSelectCreditCard}>
+            <Radio style={radioStyle} value={'visa-credito'}>
+              <p style={{ color: 'white' }}>Visa Credito</p>
+            </Radio>
+            <Radio style={radioStyle} value={'visa-debito'}>
+              <p style={{ color: 'white' }}>Visa Debito</p>
+            </Radio>
+            <Radio style={radioStyle} value={'master-debito'}>
+              <p style={{ color: 'white' }}>Master Card debito</p>
+            </Radio>
+          </Radio.Group>
 
-        <Button onClick={() => {}}>
-          Confirmar compra
-        </Button> 
-      </div>
+          <Button onClick={() => updateCart(shippingAddress, creditCard)}>
+            Confirmar compra
+          </Button>
+        </div>
+      </Fragment>
     )
   }
 }
+
+CartDetails.propTypes = {
+  total: PropTypes.string.isRequired,
+  updateCart: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  total: getTotal(state)
+})
+
+export default connect(
+  mapStateToProps,
+  { updateCart }
+)(CartDetails)
