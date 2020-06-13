@@ -32,11 +32,13 @@ class App extends Component {
 
   updateList(newList, term) {
     const { products } = this.props;
-    term !== '' ?
+    term !== ''
+    ?
       this.setState({
         results: newList,
         term
-      }) : 
+      })
+    : 
       this.setState({results: products})
   }
 
