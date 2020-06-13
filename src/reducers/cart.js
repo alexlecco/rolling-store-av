@@ -4,7 +4,14 @@ import {
     CHECKOUT_FAILURE,
     UPDATE_CART
 } from '../constants/ActionTypes'
-  
+import { firebaseApp } from '../firebase'
+
+const Purchases = firebaseApp.database().ref().child('purchases')
+
+const createPurchase = state => {
+  Purchases.push(state)
+}
+
 const initialState = {
     addedIds: [],
     quantityById: {},
@@ -65,13 +72,15 @@ const cart = (state = initialState, action) => {
   case CHECKOUT_FAILURE:
     return action.cart
   case UPDATE_CART:
-    return {
+    const newState = {
       addedIds: state.addedIds,
       quantityById: state.quantityById,
       customer: state.customer,
       creditCard: action.payload.newCreditCard,
       shippingAddress: action.payload.newShippingAddress
     }
+    createPurchase(newState)
+    return newState
   default:
     return {
       addedIds: addedIds(state.addedIds, action),
