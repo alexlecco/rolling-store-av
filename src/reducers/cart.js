@@ -2,7 +2,7 @@ import {
     ADD_TO_CART,
     CHECKOUT_REQUEST,
     CHECKOUT_FAILURE,
-    UPDATE_CART
+    CHECKOUT_CART
 } from '../constants/ActionTypes'
 import { firebaseApp } from "../firebase";
 import { getTotal } from './';
@@ -72,7 +72,7 @@ const cart = (state = initialState, action) => {
     return initialState
   case CHECKOUT_FAILURE:
     return action.cart
-  case UPDATE_CART:
+  case CHECKOUT_CART:
     const newState = {
       addedIds: state.addedIds,
       quantityById: state.quantityById,
@@ -81,7 +81,8 @@ const cart = (state = initialState, action) => {
       shippingAddress: action.payload.newShippingAddress,
     }
     createPurchase(newState)
-    return newState
+
+    return initialState
   default:
     return {
       addedIds: addedIds(state.addedIds, action),
