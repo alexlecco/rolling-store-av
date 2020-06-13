@@ -145,7 +145,6 @@
 .productInfo {
   background-color: var(--secondary);
   padding: 15px;
-  min-width: 600px;
   padding: 20px;
   margin: 0 40px;
 }

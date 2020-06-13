@@ -10,15 +10,15 @@ export default class ProductCard extends Component {
     const { name, brand, price, id } = this.props.product;
 
     return(
-      <Link to= {{
-          pathname: '/product/' + id,
-          state: {
-            product: this.props.product
-          }
-        }}
-      >
-        <div style={{ cursor: 'pointer', margin: 20 }}>
-          <div className="product-card">
+      <div style={{ margin: 20 }}>
+        <Link to= {{
+            pathname: '/product/' + id,
+            state: {
+              product: this.props.product
+            }
+          }}
+        >
+          <div className="product-card" >
             <div className="product-imageContainer">
               <img src={this.getPhoto(id)} className="product-image" alt="product"/>
             </div>
@@ -26,8 +26,8 @@ export default class ProductCard extends Component {
             <div>marca: {brand} </div>
             <div>precio: {price} </div>
           </div>
-        </div>  
-      </Link>
+        </Link>
+      </div>  
     )
   }
 }

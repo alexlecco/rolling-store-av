@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../logo.png';
 import { Layout, Row, Col, Input } from 'antd';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { getInfoCustomer } from '../reducers'
 import { connect } from 'react-redux'
 const { Header } = Layout;
@@ -19,6 +19,8 @@ class CustomHeader extends Component {
   }
   
   setRedirectToMain = () => {
+    this.handleClearTerm()
+    this.props.updateList([], '')
     this.setState({
       redirectToMain: true,
       redirectToResults: false,
@@ -83,7 +85,9 @@ class CustomHeader extends Component {
         <Row>
           <Col xs={{ span: 5 }} lg={{ span: 3 }}>
             {this.renderRedirectToMain()}
-            <img src={logo} className='header-logo' alt='logo' onClick={this.setRedirectToMain} />
+            <Link to={{ pathname: '/' }}>
+              <img src={logo} className='header-logo' alt='logo' onClick={this.setRedirectToMain} />
+            </Link>
           </Col>
           <Col xs={{ span: 19 }} lg={{ span: 16 }}>
             <div className='header-search'>

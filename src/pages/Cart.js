@@ -40,8 +40,8 @@ class Cart extends Component {
                 shippingAddress={shippingAddress}
                 creditCard={creditCard}
               />
-              <Link to= {{ pathname: '/' }}>
-                <a href="#" className="keepShopping-link">Seguir comprando</a>
+              <Link to= {{ pathname: '/' }} className="keepShopping-link">
+                Seguir comprando
               </Link>
             </Col>
           </Row>

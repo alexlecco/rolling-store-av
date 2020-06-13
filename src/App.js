@@ -31,13 +31,13 @@ class App extends Component {
   }
 
   updateList(newList, term) {
-    const { products } = this.state;
     term !== '' ?
       this.setState({
         results: newList,
         term
-      }) : 
-      this.setState({results: products})
+      })
+    : 
+      this.setState({results: []})
   }
 
   render() {

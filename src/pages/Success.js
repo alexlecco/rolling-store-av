@@ -11,7 +11,7 @@ export default class Success extends Component {
 				<Content className="content">
 					<p> Compra realizada con éxito </p>
 					<Link to={{ pathname: '/' }}>
-						<a href="#"> Volver al inicio </a>
+						 Volver al inicio
 					</Link>
 				</Content>
 			</Layout>
