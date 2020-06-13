@@ -11,7 +11,7 @@ class ProductsInCart extends Component {
     
     return(
       <div>
-        <h3 style={{textAlign: 'center'}}>productos en Carrito</h3>
+        <h3 style={{textAlign: 'center', color: 'white'}}>productos en Carrito</h3>
         {
           products.map(({ name, brand, price, id, quantity }) => (
             <div style={{ margin: 20 }}>
