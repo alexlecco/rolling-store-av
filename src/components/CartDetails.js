@@ -7,8 +7,8 @@ import { getTotal } from '../reducers'
 
 class CartDetails extends Component {
   state = {
-    creditCard: '',
-    shippingAddress: ''
+    creditCard: this.props.creditCard,
+    shippingAddress: this.props.shippingAddress
   }
 
   onWriteAddress = e => {
@@ -26,7 +26,7 @@ class CartDetails extends Component {
 
     return(
       <Fragment>
-        <h3 style={{textAlign: 'center'}}>Resumen de compra</h3>
+        <h3 style={{textAlign: 'center', color: 'white'}}>Resumen de compra</h3>
         <div className="cartDetails">
           <p>Total: ${ total }</p>
 

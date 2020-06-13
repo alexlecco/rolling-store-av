@@ -12,7 +12,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { firebaseApp } from './firebase';
 import { connect } from "react-redux";
 import { getVisibleProducts } from "./reducers/products";
 
@@ -25,30 +24,6 @@ class App extends Component {
     }
     this.updateTerm = this.updateTerm.bind(this);
     this.updateList = this.updateList.bind(this);
-
-    this.productsRef = firebaseApp.database().ref().child('products');
-  }
-
-  componentDidMount() {
-    this.listenForProducts(this.productsRef);
-  }
-
-  listenForProducts(productsRef) {
-    productsRef.on('value', snap => {
-      let products = [];
-      snap.forEach(child => {
-        products.push({
-          name: child.val().name,
-          brand: child.val().brand,
-          price: child.val().price,
-          description: child.val().description,
-          shippingTime: child.val().shippingTime,
-          id: child.val().id
-        });
-      });
-
-      this.setState({ products });
-    });
   }
 
   updateTerm(term) {
