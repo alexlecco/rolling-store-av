@@ -12,6 +12,7 @@ import {
 import { Layout, Row, Col } from 'antd';
 import ProductsInCart from '../components/ProductsInCart';
 import CartDetails from '../components/CartDetails';
+import { Link } from 'react-router-dom'
 const { Content } = Layout;
 
 class Cart extends Component {
@@ -26,7 +27,6 @@ class Cart extends Component {
   render() {
     const { product } = this.props.location.state
     const { customer, shippingAddress, creditCard, products } = this.props
-    console.log("products::::::", products)
     
     return(
       <Layout>
@@ -41,6 +41,9 @@ class Cart extends Component {
                 shippingAddress={shippingAddress}
                 creditCard={creditCard}
               />
+              <Link to= {{ pathname: '/' }}>
+                <a href="#" className="keepShopping-link">Seguir comprando</a>
+              </Link>
             </Col>
           </Row>
         </Content>

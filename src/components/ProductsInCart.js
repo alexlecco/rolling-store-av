@@ -16,21 +16,8 @@ class ProductsInCart extends Component {
           products.map(({ name, brand, price, id, quantity }) => (
             <div style={{ margin: 20 }}>
               <div className="productInCart">
-                <Row>
-                  <Col xl={{span: 10}} xs={{span:24}}>
-                    <div className="productInCart-imageContainer">
-                      <img src={this.getPhoto(id)} className="productInCart-image" alt="product"/>
-                    </div>
-                  </Col>
-                  <Col xl={{span: 14}} xs={{span:24}}>
-                    <div style={{ marginLeft: 10 }}>
-                      <div>{name} {brand}</div>
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <div style={{textAlign: 'center'}}>subtotal: {quantity} x ${price} = ${quantity*price} </div>
-                </Row>
+                <div>{name} {brand}</div>
+                <div>subtotal: {quantity} x ${price} = ${quantity*price} </div>
               </div>
             </div>
           ))

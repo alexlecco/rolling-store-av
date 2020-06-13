@@ -110,6 +110,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .footer {
@@ -190,6 +191,12 @@
   display: block;
   max-width: 100%;
   max-height: 200px;
+}
+
+.keepShopping-link {
+  display: flex;
+  justify-content: center;
+  color: var(--secondary);
 }
 
 /*-------------------------------------------------------------------*/
