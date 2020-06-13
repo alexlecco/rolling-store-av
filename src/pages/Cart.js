@@ -10,7 +10,7 @@ import {
   getInfoCreditCard
 } from "../reducers";
 import { Layout, Row, Col } from 'antd';
-import ProductCard from '../components/ProductCard';
+import ProductsInCart from '../components/ProductsInCart';
 import CartDetails from '../components/CartDetails';
 const { Content } = Layout;
 
@@ -25,7 +25,8 @@ class Cart extends Component {
 
   render() {
     const { product } = this.props.location.state
-    const { customer, shippingAddress, creditCard } = this.props
+    const { customer, shippingAddress, creditCard, products } = this.props
+    console.log("products::::::", products)
     
     return(
       <Layout>
@@ -33,11 +34,10 @@ class Cart extends Component {
           <p> Carrito de: {customer} </p>
           <Row>
             <Col xs={{ span: 24 }} lg={{ span: 12 }}>
-              <ProductCard product={product} />
+              <ProductsInCart products={products} />
             </Col>
             <Col xs={{ span: 24 }} lg={{ span: 12 }}>
               <CartDetails
-                product={product}
                 shippingAddress={shippingAddress}
                 creditCard={creditCard}
               />

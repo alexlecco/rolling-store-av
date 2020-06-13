@@ -171,6 +171,27 @@
   padding: 15px;
   margin: 20px;
 }
+
+.productInCart {
+  background-color: var(--secondary);
+  padding: 15px;
+}
+
+.productInCart-imageContainer {
+  position: relative;
+  background-color: white;
+  filter: brightness(90%);
+  height: 200px;
+}
+
+.productInCart-image {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+}
+
 /*-------------------------------------------------------------------*/
 
 .footer {
