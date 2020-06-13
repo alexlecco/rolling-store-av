@@ -4,6 +4,10 @@ import ProductCard from '../components/ProductCard';
 const { Content } = Layout;
 
 export default class Results extends Component {
+  getSpanWidth(quantity) {
+    return quantity === 1 ? 24 : quantity === 2 ? 12 : 8
+  }
+
   render() {
     const { results } = this.props;
 
@@ -16,9 +20,9 @@ export default class Results extends Component {
               <p> Resultados la de busqueda </p>
               <Row>
                 {
-                results.map(resul => (
-                  <Col xs={{ span: 24 }} lg={{ span: 8 }}>
-                    <ProductCard key={resul.id} product={resul} />
+                results.map(result => (
+                  <Col xs={{ span: 24 }} lg={{ span: this.getSpanWidth(results.length) }}>
+                    <ProductCard key={result.id} product={result} />
                   </Col>
                 ))
                 }

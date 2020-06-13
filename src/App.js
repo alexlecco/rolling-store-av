@@ -58,9 +58,7 @@ class App extends Component {
         <Switch>
           <Route path="/results">
             <div className='App-container'>
-              <Results
-                results={results}
-              />
+              <Results results={results} />
             </div>
           </Route>
 
@@ -84,16 +82,13 @@ class App extends Component {
 
           <Route path="/success">
             <div className='App-container'>
-              <Success
-              />
+              <Success />
             </div>
           </Route>
 
           <Route path="/">
             <div className='App-container'>
-              <Main
-                products={products}
-              />
+              <Main products={products} />
             </div>
           </Route>
         </Switch>
