@@ -10,10 +10,10 @@ export default class Success extends Component {
 			<Layout>
 				<Content className="content">
 					<p> Compra realizada con éxito </p>
+					<Link to={{ pathname: '/' }}>
+						<a href="#"> Volver al inicio </a>
+					</Link>
 				</Content>
-				<Link to={{ pathname: '/' }}>
-					<a href="#"> Volver al inicio </a>
-				</Link>
 			</Layout>
 		)
 	}

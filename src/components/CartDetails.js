@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Radio, Input, Button } from 'antd';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { updateCart } from '../actions'
+import { checkoutCart } from '../actions'
 import { getTotal } from '../reducers'
 import { Link } from 'react-router-dom'
 
@@ -23,7 +23,7 @@ class CartDetails extends Component {
   render() {
     const radioStyle = { display: 'block' };
     const { shippingAddress, creditCard } = this.state
-    const { total, updateCart } = this.props
+    const { total, checkoutCart } = this.props
 
     return(
       <Fragment>
@@ -48,7 +48,7 @@ class CartDetails extends Component {
           </Radio.Group>
 
           <Link to={{ pathname: '/success' }}>
-            <Button onClick={() => updateCart(shippingAddress, creditCard)}>
+            <Button onClick={() => checkoutCart(shippingAddress, creditCard)}>
               Confirmar compra
             </Button>
           </Link>
@@ -60,7 +60,7 @@ class CartDetails extends Component {
 
 CartDetails.propTypes = {
   total: PropTypes.string.isRequired,
-  updateCart: PropTypes.func.isRequired
+  checkoutCart: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -69,5 +69,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateCart }
+  { checkoutCart }
 )(CartDetails)
