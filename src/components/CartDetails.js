@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { updateCart } from '../actions'
 import { getTotal } from '../reducers'
+import { Link } from 'react-router-dom'
 
 class CartDetails extends Component {
   state = {
@@ -46,9 +47,11 @@ class CartDetails extends Component {
             </Radio>
           </Radio.Group>
 
-          <Button onClick={() => updateCart(shippingAddress, creditCard)}>
-            Confirmar compra
-          </Button>
+          <Link to= {{ pathname: '/success' }}>
+            <Button onClick={() => updateCart(shippingAddress, creditCard)}>
+              Confirmar compra
+            </Button>
+          </Link>
         </div>
       </Fragment>
     )
