@@ -1,0 +1,136 @@
+{
+  "products" : [ {
+    "brand" : "HP",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 0,
+    "inventory" : 10,
+    "name" : "notebook",
+    "price" : 19000,
+    "shippingTime" : "2 días"
+  }, {
+    "brand" : "Nike",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 1,
+    "inventory" : 10,
+    "name" : "zapatillas",
+    "price" : 3500,
+    "shippingTime" : "3 días"
+  }, {
+    "brand" : "Dark Souls",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 2,
+    "inventory" : 10,
+    "name" : "game de ps4",
+    "price" : 4000,
+    "shippingTime" : "5 días"
+  }, {
+    "brand" : "The last of us",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 3,
+    "inventory" : 10,
+    "name" : "game de ps4",
+    "price" : 4000,
+    "shippingTime" : "2 días"
+  }, {
+    "brand" : "Crash Bandicoot",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 4,
+    "inventory" : 10,
+    "name" : "juego de ps4",
+    "price" : 4000,
+    "shippingTime" : "1 semana"
+  }, {
+    "brand" : "Fifa 20",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 5,
+    "inventory" : 10,
+    "name" : "juego de ps4",
+    "price" : 4000,
+    "shippingTime" : "6 días"
+  }, {
+    "brand" : "Spider Man",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 6,
+    "inventory" : 10,
+    "name" : "juego de ps4",
+    "price" : 4000,
+    "shippingTime" : "12 días"
+  }, {
+    "brand" : "God of War",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 7,
+    "inventory" : 10,
+    "name" : "juego de ps4",
+    "price" : 4000,
+    "shippingTime" : "3 días"
+  }, {
+    "brand" : "Uncharted",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 8,
+    "inventory" : 10,
+    "name" : "juego de ps4",
+    "price" : 4000,
+    "shippingTime" : "1 día"
+  }, {
+    "brand" : "Brawlhalla",
+    "description" : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab nam ducimus excepturi nesciunt magnam facere sequi quia voluptatem impedit natus accusantium at qui, totam repellendus sed labore nobis et consequatur.",
+    "id" : 9,
+    "inventory" : 10,
+    "name" : "juego de ps4",
+    "price" : 4000,
+    "shippingTime" : "2 días"
+  } ],
+  "purchases" : {
+    "0" : {
+      "addedIds" : [ 2 ],
+      "creditCard" : "visa-debito",
+      "customer" : "Alex",
+      "quantityById" : {
+        "2" : 1
+      },
+      "shippintAdrress" : "Miguel 40"
+    },
+    "-M9jmLpmDpQyoBoz0wSn" : {
+      "addedIds" : [ 1 ],
+      "creditCard" : "",
+      "customer" : "Alex",
+      "quantityById" : [ null, 1 ],
+      "shippingAddress" : ""
+    },
+    "-M9jmXU9SWqkKOzlApFl" : {
+      "addedIds" : [ 0 ],
+      "creditCard" : "",
+      "customer" : "Alex",
+      "quantityById" : [ 1 ],
+      "shippingAddress" : ""
+    },
+    "-M9jn5E3_mhSZFGfxoFx" : {
+      "addedIds" : [ 0 ],
+      "creditCard" : "",
+      "customer" : "Alex",
+      "quantityById" : [ 1 ],
+      "shippingAddress" : ""
+    },
+    "-M9jnSuJkzYl0u4EZMEz" : {
+      "addedIds" : [ 0 ],
+      "creditCard" : "",
+      "customer" : "Alex",
+      "quantityById" : [ 1 ],
+      "shippingAddress" : ""
+    },
+    "-M9jpAZo6dvTDaimajI6" : {
+      "addedIds" : [ 0 ],
+      "creditCard" : "",
+      "customer" : "Alex",
+      "quantityById" : [ 1 ],
+      "shippingAddress" : ""
+    },
+    "-M9js2mHc3jPVPBK1NUM" : {
+      "addedIds" : [ 0 ],
+      "creditCard" : "",
+      "customer" : "Alex",
+      "quantityById" : [ 1 ],
+      "shippingAddress" : ""
+    }
+  }
+}
