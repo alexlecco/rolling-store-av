@@ -27,9 +27,7 @@ store.dispatch(getFetchedProducts())
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
