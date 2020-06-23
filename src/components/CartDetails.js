@@ -20,6 +20,10 @@ class CartDetails extends Component {
     this.setState({ creditCard: e.target.value })
   }
 
+  validateButton = () => {
+    return this.state.creditCard === '' || this.state.shippingAddress === ''
+  }
+
   render() {
     const radioStyle = { display: 'block' };
     const { shippingAddress, creditCard } = this.state
@@ -48,7 +52,7 @@ class CartDetails extends Component {
           </Radio.Group>
 
           <Link to={{ pathname: '/success' }}>
-            <Button onClick={() => checkoutCart(shippingAddress, creditCard)}>
+            <Button onClick={() => checkoutCart(shippingAddress, creditCard)} disabled={this.validateButton()}>
               Confirmar compra
             </Button>
           </Link>
